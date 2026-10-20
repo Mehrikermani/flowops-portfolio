@@ -1,57 +1,12 @@
-▣ FlowOps Studio
-← Back to Automations
-Engineering case study · Identity automation
-Employee Lifecycle Automation
-An HR-driven automation design connecting employee data, identity administration, manager notifications, and operational reporting.
-
-Workday
-Microsoft Entra ID
-Microsoft Graph
-Azure Automation
-Logic Apps
-PowerShell
-Slack
-The challenge
-Employee onboarding involves time-sensitive identity updates, HR data validation, account actions, and notifications to managers and IT. Manual coordination can create repetitive work and make exceptions difficult to track.
-
-Identity lifecycle
-Coordinate user-account actions against validated HR records.
-
-Operational visibility
-Report completed, skipped, and failed actions clearly.
-
-Communication
-Notify relevant stakeholders without unnecessary messages.
-
-Solution architecture
-A scheduled Azure workflow orchestrates identity operations and routes structured results to reporting and notifications.
-
-HR source
-Workday employee data
-Azure Automation
-PowerShell runbook
-Microsoft Graph
-Identity operations
-Logic Apps
-Process JSON output
-Notifications
-Manager, IT and Slack
-Simplified architecture for portfolio presentation. Production configuration, secrets, employee data, and employer-owned implementation details are not published.
-Implementation highlights
-HR filtering: Identify eligible employee records within a defined onboarding window and apply business rules.
-Identity operations: Use Microsoft Graph and Azure Automation for account-related actions, with explicit success and failure handling.
-Duplicate prevention: Track processed users in Azure Table Storage so successful operations are not repeated unnecessarily.
-Manager grouping: Organize notifications by manager and generate readable HTML summaries.
-Conditional alerts: Suppress unnecessary Slack notifications when there are no relevant results.
-Structured reporting: Return JSON containing processed users, skipped records, counts, and operational details for Logic Apps.
-Engineering approach
-The workflow separates identity operations from communication. The runbook handles business rules and Microsoft Graph interactions, while Logic Apps transforms the output into stakeholder-specific notifications and reports.
-
-Key design priorities include least-privilege permissions, safe handling of credentials, actionable errors, and repeatable execution.
-
-Explore related work
-Public examples and supporting documentation can be added as independently developed, sanitized code samples.
-
-Explore GitHub ↗
-Discuss a Similar Project →
-© 2026 FlowOps Studio · Automation Engineering
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="Employee lifecycle automation case study: HR data, Microsoft Entra ID, Azure Automation, Microsoft Graph, Logic Apps, and Slack."><title>Employee Lifecycle Automation | FlowOps Studio</title>
+<style>
+:root{--ink:#20213a;--muted:#63667a;--purple:#6254d6;--line:#e4e8ed;--bg:#f8f7fd}*{box-sizing:border-box}body{margin:0;color:var(--ink);font:16px/1.7 system-ui,-apple-system,Segoe UI,sans-serif}a{color:var(--purple)}.wrap{max-width:1060px;margin:auto;padding:0 26px}header{border-bottom:1px solid var(--line);background:#fff}.nav{min-height:76px;display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap}.brand{font-weight:800;font-size:21px;text-decoration:none;color:var(--ink)}.brand span{color:var(--purple)}.back{text-decoration:none;font-size:14px;font-weight:650}.hero{padding:85px 0 65px}.eyebrow{text-transform:uppercase;letter-spacing:2px;font-size:12px;font-weight:750;color:var(--purple)}h1{font-size:clamp(36px,5.5vw,62px);letter-spacing:-2px;line-height:1.12;margin:18px 0}h2{font-size:28px;letter-spacing:-.8px;line-height:1.2;margin:0 0 16px}h3{margin:0 0 10px}p{margin:0 0 16px}.lead{font-size:19px;color:var(--muted);max-width:780px}.tags{display:flex;gap:8px;flex-wrap:wrap;margin-top:25px}.tag{background:#f0edff;color:var(--purple);padding:5px 11px;border-radius:5px;font-size:12px;font-weight:700}.shade{background:var(--bg)}section{padding:58px 0}.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}.card{border:1px solid var(--line);background:#fff;border-radius:12px;padding:22px}.card p{font-size:14px;color:var(--muted);margin:0}.steps{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:9px;margin:24px 0}.step{border:1px solid #dcd8f9;background:#fff;padding:16px 10px;border-radius:9px;text-align:center;font-size:13px;font-weight:650}.step small{display:block;color:var(--muted);font-weight:400;margin-top:5px}ul{padding-left:21px}li{margin-bottom:10px}.btn{display:inline-block;background:var(--purple);color:#fff;text-decoration:none;padding:12px 20px;border-radius:6px;font-weight:700}.btn.alt{background:#fff;border:1px solid #d6d8e5;color:var(--ink)}.actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:24px}.note{padding:16px 20px;border-left:3px solid var(--purple);background:#f6f4ff;color:var(--muted);font-size:14px}footer{border-top:1px solid var(--line);padding:25px 0;font-size:13px;color:var(--muted)}@media(max-width:720px){.grid,.steps{grid-template-columns:1fr}.hero{padding:60px 0 45px}section{padding:45px 0}}
+</style></head><body>
+<header><div class="wrap nav"><a class="brand" href="../index.html"><span>▣</span> FlowOps Studio</a><a class="back" href="../index.html#projects">← Back to Automations</a></div></header>
+<main><div class="wrap hero"><div class="eyebrow">Engineering case study · Identity automation</div><h1>Employee Lifecycle Automation</h1><p class="lead">An HR-driven automation design connecting employee data, identity administration, manager notifications, and operational reporting.</p><div class="tags"><span class="tag">Workday</span><span class="tag">Microsoft Entra ID</span><span class="tag">Microsoft Graph</span><span class="tag">Azure Automation</span><span class="tag">Logic Apps</span><span class="tag">PowerShell</span><span class="tag">Slack</span></div></div>
+<section class="shade"><div class="wrap"><h2>The challenge</h2><p>Employee onboarding involves time-sensitive identity updates, HR data validation, account actions, and notifications to managers and IT. Manual coordination can create repetitive work and make exceptions difficult to track.</p><div class="grid"><div class="card"><h3>Identity lifecycle</h3><p>Coordinate user-account actions against validated HR records.</p></div><div class="card"><h3>Operational visibility</h3><p>Report completed, skipped, and failed actions clearly.</p></div><div class="card"><h3>Communication</h3><p>Notify relevant stakeholders without unnecessary messages.</p></div></div></div></section>
+<section><div class="wrap"><h2>Solution architecture</h2><p class="lead">A scheduled Azure workflow orchestrates identity operations and routes structured results to reporting and notifications.</p><div class="steps"><div class="step">HR source<small>Workday employee data</small></div><div class="step">Azure Automation<small>PowerShell runbook</small></div><div class="step">Microsoft Graph<small>Identity operations</small></div><div class="step">Logic Apps<small>Process JSON output</small></div><div class="step">Notifications<small>Manager, IT and Slack</small></div></div><div class="note">Simplified architecture for portfolio presentation. Production configuration, secrets, employee data, and employer-owned implementation details are not published.</div></div></section>
+<section class="shade"><div class="wrap"><h2>Implementation highlights</h2><ul><li><strong>HR filtering:</strong> Identify eligible employee records within a defined onboarding window and apply business rules.</li><li><strong>Identity operations:</strong> Use Microsoft Graph and Azure Automation for account-related actions, with explicit success and failure handling.</li><li><strong>Duplicate prevention:</strong> Track processed users in Azure Table Storage so successful operations are not repeated unnecessarily.</li><li><strong>Manager grouping:</strong> Organize notifications by manager and generate readable HTML summaries.</li><li><strong>Conditional alerts:</strong> Suppress unnecessary Slack notifications when there are no relevant results.</li><li><strong>Structured reporting:</strong> Return JSON containing processed users, skipped records, counts, and operational details for Logic Apps.</li></ul></div></section>
+<section><div class="wrap"><h2>Engineering approach</h2><p>The workflow separates identity operations from communication. The runbook handles business rules and Microsoft Graph interactions, while Logic Apps transforms the output into stakeholder-specific notifications and reports.</p><p>Key design priorities include least-privilege permissions, safe handling of credentials, actionable errors, and repeatable execution.</p><h2 style="margin-top:38px">Explore related work</h2><p class="lead">Public examples and supporting documentation can be added as independently developed, sanitized code samples.</p><div class="actions"><a class="btn" href="https://github.com/Mehrikermani" target="_blank" rel="noopener noreferrer">Explore GitHub ↗</a><a class="btn alt" href="../index.html#contact">Discuss a Similar Project →</a></div></div></section></main>
+<footer><div class="wrap">© <span id="year"></span> FlowOps Studio · Automation Engineering</div></footer><script>document.getElementById('year').textContent=new Date().getFullYear()</script></body></html>
