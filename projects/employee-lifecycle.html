@@ -1,0 +1,57 @@
+▣ FlowOps Studio
+← Back to Automations
+Engineering case study · Identity automation
+Employee Lifecycle Automation
+An HR-driven automation design connecting employee data, identity administration, manager notifications, and operational reporting.
+
+Workday
+Microsoft Entra ID
+Microsoft Graph
+Azure Automation
+Logic Apps
+PowerShell
+Slack
+The challenge
+Employee onboarding involves time-sensitive identity updates, HR data validation, account actions, and notifications to managers and IT. Manual coordination can create repetitive work and make exceptions difficult to track.
+
+Identity lifecycle
+Coordinate user-account actions against validated HR records.
+
+Operational visibility
+Report completed, skipped, and failed actions clearly.
+
+Communication
+Notify relevant stakeholders without unnecessary messages.
+
+Solution architecture
+A scheduled Azure workflow orchestrates identity operations and routes structured results to reporting and notifications.
+
+HR source
+Workday employee data
+Azure Automation
+PowerShell runbook
+Microsoft Graph
+Identity operations
+Logic Apps
+Process JSON output
+Notifications
+Manager, IT and Slack
+Simplified architecture for portfolio presentation. Production configuration, secrets, employee data, and employer-owned implementation details are not published.
+Implementation highlights
+HR filtering: Identify eligible employee records within a defined onboarding window and apply business rules.
+Identity operations: Use Microsoft Graph and Azure Automation for account-related actions, with explicit success and failure handling.
+Duplicate prevention: Track processed users in Azure Table Storage so successful operations are not repeated unnecessarily.
+Manager grouping: Organize notifications by manager and generate readable HTML summaries.
+Conditional alerts: Suppress unnecessary Slack notifications when there are no relevant results.
+Structured reporting: Return JSON containing processed users, skipped records, counts, and operational details for Logic Apps.
+Engineering approach
+The workflow separates identity operations from communication. The runbook handles business rules and Microsoft Graph interactions, while Logic Apps transforms the output into stakeholder-specific notifications and reports.
+
+Key design priorities include least-privilege permissions, safe handling of credentials, actionable errors, and repeatable execution.
+
+Explore related work
+Public examples and supporting documentation can be added as independently developed, sanitized code samples.
+
+Explore GitHub ↗
+Discuss a Similar Project →
+© 2026 FlowOps Studio · Automation Engineering
